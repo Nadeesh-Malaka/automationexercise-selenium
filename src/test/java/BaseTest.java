@@ -9,28 +9,32 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
-        //1. Launch browser
+        // Step 1: Launch browser
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        //2. Navigate to url 'http://automationexercise.com'
+        // Step 2: Navigate to the URL
         driver.get("https://automationexercise.com/");
-        System.out.println("......................................\n");
-        System.out.println("Step 1 - Browser Launched and navigate to the url");
+        System.out.println("======================================");
+        System.out.println("\n🚀 Test Started: Opening AutomationExercise.com\n");
+        System.out.println("✅ Step 1 - Browser launched and maximized");
+        System.out.println("✅ Step 2 - Navigated to URL: https://automationexercise.com");
 
-
-        //3.Verify that home page is visible successfully
-        String homepage = driver.getTitle();
-        if(homepage.equals("Automation Exercise")){
-            Reporter.log("Home page is visible", true);
+        // Step 3: Verify that the home page is visible
+        String homepageTitle = driver.getTitle();
+        if (homepageTitle.equals("Automation Exercise")) {
+            Reporter.log("✅ Step 3 - Home page is visible", true);
         } else {
-            Reporter.log("Home page is not visible", true);
+            Reporter.log("❌ Step 3 - Home page is not visible (Title: " + homepageTitle + ")", true);
         }
-
     }
 
     @AfterMethod
     public void tearDown() {
-        if (driver != null) driver.quit();
+        if (driver != null) {
+            driver.quit();
+            System.out.println("🧹 Browser closed after test");
+            System.out.println("======================================\n");
+        }
     }
 }
