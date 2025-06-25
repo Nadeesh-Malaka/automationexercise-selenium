@@ -1,42 +1,15 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class RegisterUserTest {
+public class RegisterUserTest extends BaseTest{
 
     //1)Test case 01 - Register User
 
-    WebDriver driver;
-
-    @BeforeMethod
-    public void OpenWebPage() throws InterruptedException{
-        //1. Launch browser
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-        //2. Navigate to url 'http://automationexercise.com'
-        driver.get("https://automationexercise.com/");
-        System.out.println("1) Test case 01 - Register User");
-        System.out.println("......................................\n");
-        System.out.println("Browser Launched and navigate to the url");
-
-    }
-
     @Test
     public void RegisterUser() throws InterruptedException {
-
-        //3.Verify that home page is visible successfully
-        String homepage = driver.getTitle();
-        if(homepage.equals("Automation Exercise")){
-            Reporter.log("Home page is visible", true);
-        } else {
-            Reporter.log("Home page is not visible", true);
-        }
-        Thread.sleep(2000);
 
         //4. Click on 'Signup / Login' button
         driver.findElement(By.xpath("//*[@id=\"header\"]/div/div/div/div[2]/div/ul/li[4]")).click();
