@@ -36,7 +36,8 @@ selenium-tests/
 └── src/
     └── test/
         └── java/
-            └── ├── RegisterUserTest.java
+            └── ├── BaseTest.java
+                ├── RegisterUserTest.java
                 ├── LoginValidTest.java
                 ├── LoginInvalidTest.java
                 └── LogoutTest.java
